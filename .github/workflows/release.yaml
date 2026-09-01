@@ -89,7 +89,7 @@ jobs:
         helm package charts/karpenter-provider-huawei --destination charts
     - name: Push chart
       run: |
-        OCI_REF="oci://ghcr.io/${IMAGE_REPO}/charts/cce/karpenter"
+        OCI_REF="oci://ghcr.io/${IMAGE_REPO}/charts"
         CHART_TGZ="charts/karpenter-provider-huawei-${RELEASE_TAG#v}.tgz"
         echo "Pushing ${CHART_TGZ} to ${OCI_REF}"
         helm push "${CHART_TGZ}" "${OCI_REF}"

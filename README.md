@@ -36,7 +36,7 @@ The chart is published to the GitHub Container Registry as an OCI artifact:
 
 ```bash
 helm install karpenter-provider-huawei \
-  oci://ghcr.io/huaweiclouddeveloper/charts/cce/karpenter \
+  oci://ghcr.io/huaweiclouddeveloper/charts/karpenter-provider-huawei \
   --version <chart-version> \
   ...
 ```
