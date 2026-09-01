@@ -32,6 +32,17 @@ Karpenter improves the efficiency and cost of running workloads on Kubernetes cl
 
 ### 1. Install via Helm
 
+The chart is published to the GitHub Container Registry as an OCI artifact:
+
+```bash
+helm install karpenter-provider-huawei \
+  oci://ghcr.io/huaweiclouddeveloper/charts/karpenter-provider-huawei \
+  --version <chart-version> \
+  ...
+```
+
+The examples below install from the chart source in this repository (`charts/karpenter-provider-huawei`); replace that path with the OCI reference above to install a released version.
+
 #### Using AK/SK credentials
 
 ```bash
@@ -241,6 +252,8 @@ make generate   # Generate DeepCopy methods
 
 ```bash
 make helm-lint       # Lint the chart
+make helm-package    # Package the chart and regenerate charts/index.yaml
+make helm-push       # Package the chart and push it to ghcr.io (requires `helm registry login ghcr.io`)
 make helm-template   # Render templates locally
 make helm-install    # Install
 make helm-upgrade    # Upgrade
