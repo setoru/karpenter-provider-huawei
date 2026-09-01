@@ -84,7 +84,9 @@ jobs:
           exit 1
         fi
     - name: Package chart
-      run: make helm-package
+      run: |
+        helm lint charts/karpenter-provider-huawei
+        helm package charts/karpenter-provider-huawei --destination charts
     - name: Push chart
       run: |
         OCI_REF="oci://ghcr.io/${IMAGE_REPO}/charts"
